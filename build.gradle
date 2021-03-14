@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    orientDbVer = '3.0.37'
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    implementation "com.orientechnologies:orientdb-core:$orientDbVer"
+    implementation "com.orientechnologies:orientdb-client:$orientDbVer"
+}
+
+test {
+    useJUnitPlatform()
+}
