@@ -1,11 +1,21 @@
 ## Description
-This repository reproduces potential OrientDB bug, reproducible in multithreaded environment
+This repository reproduces potential in OrientDB when using live queries.
 
-### Environment
-The bug is reproducible when working with OrientDB remotely. 
+## Environment
+The bug is reproducible when working with OrientDB remotely and only when running
+live queries simultaneously from different threads.
+
 It could not be reproduced in embedded mode.
+The test uses `docker-compose` in order to run `OrientDB` container
 
-Also, the bug could not be reproduced in single threaded environment
+## Description
+
+### Steps to reproduce
+
+1. Ensure `docker` and `docker-compose` are installed
+2. Run `./gradlew test`
+
+This will run `testMultithreadedLiveQuery`
 
 ### Test case:
 | Thread    | Actions                                                               |
