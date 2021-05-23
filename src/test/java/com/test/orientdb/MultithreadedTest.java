@@ -56,7 +56,7 @@ public class MultithreadedTest {
         Thread.sleep(1000);
     }
 
-    class Subscription implements OLiveQueryResultListener, AutoCloseable {
+    class Subscription extends AbstractLiveQueryResultListener implements AutoCloseable {
         private final List<String> notifications = new ArrayList<>();
         private final String className;
         private final AtomicReference<OLiveQueryMonitor> monitor = new AtomicReference<>();
@@ -91,20 +91,8 @@ public class MultithreadedTest {
         }
 
         @Override
-        public void onUpdate(ODatabaseDocument database, OResult before, OResult after) {
-        }
-
-        @Override
-        public void onDelete(ODatabaseDocument database, OResult data) {
-        }
-
-        @Override
         public void onError(ODatabaseDocument database, OException exception) {
             System.err.println("Error notification: " + exception);
-        }
-
-        @Override
-        public void onEnd(ODatabaseDocument database) {
         }
 
         @Override
