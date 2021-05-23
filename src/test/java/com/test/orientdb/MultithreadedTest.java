@@ -124,7 +124,7 @@ public class MultithreadedTest {
             pool.submit(subscriptionA::subscribe);
             pool.submit(subscriptionB::subscribe);
 
-            sleep(500);
+            sleep(1000);
 
             try (ODatabaseDocument session = sessionProvider.get()) {
                 session.<ODocument>newInstance("ClassA").field("name", "A1").save();
